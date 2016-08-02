@@ -1,0 +1,37 @@
+{
+  "name": "@chasidic/scraper",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chasidic/scraper.git"
+  },
+  "scripts": {
+    "build": "tsc -p src/",
+    "clean": "rm -rf dist/",
+    "deploy": "git pull --rebase origin master && git push origin master",
+    "major": "npm version major && npm publish",
+    "minor": "npm version minor && npm publish",
+    "patch": "npm version patch && npm publish",
+    "postpublish": "git push origin master --follow-tags",
+    "prepublish": "npm run build -s",
+    "tsc:watch": "npm run build -- --watch"
+  },
+  "author": "Ilan Frumer <ilanfrumer@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@chasidic/cache": "^0.0.1",
+    "@types/async": "^1.4.28",
+    "@types/cheerio": "^0.17.29",
+    "@types/request": "0.0.28",
+    "async": "^2.0.1",
+    "cheerio": "^0.20.0",
+    "iconv": "^2.2.1",
+    "request": "^2.74.0"
+  },
+  "devDependencies": {
+    "typescript": "^2.1.0-dev.20160802"
+  }
+}

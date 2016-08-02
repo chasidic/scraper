@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "outDir": "../dist",
+        "pretty": false,
+        "sourceMap": false,
+        "noEmitOnError": false,
+        "noUnusedLocals": false,
+        "strictNullChecks": false,
+        "noUnusedParameters": false,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noFallthroughCasesInSwitch": true,
+        "suppressExcessPropertyErrors": false,
+        "suppressImplicitAnyIndexErrors": true,
+        "target": "es6",
+        "declaration": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
