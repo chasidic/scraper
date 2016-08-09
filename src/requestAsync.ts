@@ -1,6 +1,6 @@
 import { extname } from 'path';
 import { get } from 'request';
-import { Iconv } from 'Iconv';
+import { Iconv } from 'iconv';
 
 export interface IRequestFetcher {
   uri: string;

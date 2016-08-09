@@ -1,4 +1,4 @@
-declare module 'Iconv' {
+declare module 'iconv' {
   export class Iconv {
     writable: boolean;
     constructor (fromEncoding: string, toEncoding: string);

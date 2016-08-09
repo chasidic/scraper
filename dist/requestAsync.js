@@ -1,7 +1,7 @@
 "use strict";
 const path_1 = require('path');
 const request_1 = require('request');
-const Iconv_1 = require('Iconv');
+const iconv_1 = require('iconv');
 exports.isXMLFilename = (uri) => path_1.extname(uri) === '.xml';
 const REPLACEMENT_CHAR_REGEX = /\uFFFD/;
 const CHARSET_REGEX_XML = /encoding=["'](.+?)["']/i;
@@ -14,7 +14,7 @@ const bufferToString = (buffer, isXML) => {
     if (match) {
         let CHARSET = match[1].toUpperCase();
         if (CHARSET !== 'UTF8' && CHARSET !== 'UTF-8') {
-            let iconv = new Iconv_1.Iconv(CHARSET, 'UTF-8//TRANSLIT//IGNORE');
+            let iconv = new iconv_1.Iconv(CHARSET, 'UTF-8//TRANSLIT//IGNORE');
             body = iconv.convert(buffer).toString();
         }
     }
