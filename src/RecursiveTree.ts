@@ -1,3 +1,5 @@
+/// <reference types="cheerio" />
+
 const IGNORE_ATTRS = new Set([ 'style' ]);
 
 interface IOptions {
@@ -40,6 +42,8 @@ let recursiveTree = (root: CheerioElement, { INDENT_VALUE, output, indent }: IOp
   return output;
 };
 
-export let jade = ($: CheerioStatic, INDENT_VALUE = '  ') => {
+export let toJade = ($: CheerioStatic, indent = 2) => {
+  let INDENT_VALUE = '';
+  while (indent-- > 0) INDENT_VALUE += ' ';
   return recursiveTree($.root()[0], { INDENT_VALUE, output: '', indent: '' });
 };

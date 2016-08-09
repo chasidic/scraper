@@ -1,26 +1,11 @@
 "use strict";
-exports.uniq = (array) => Array.from(new Set(array));
-exports.uniqMap = (array) => {
-    let map = new Map();
-    for (let i of array)
-        map.set(i, (map.get(i) || 0) + 1);
-    return map;
-};
-exports.stringArray = (val) => {
-    if (typeof val === 'string') {
-        return [val];
-    }
-    else if (Array.isArray(val) && val.every(v => typeof v === 'string')) {
-        return val;
-    }
-    throw new Error('Expected string or an array of strings.');
-};
-const request_1 = require('request');
 const path_1 = require('path');
+const request_1 = require('request');
+const Iconv_1 = require('Iconv');
+exports.isXMLFilename = (uri) => path_1.extname(uri) === '.xml';
 const REPLACEMENT_CHAR_REGEX = /\uFFFD/;
 const CHARSET_REGEX_XML = /encoding=["'](.+?)["']/i;
 const CHARSET_REGEX_HTML = /charset=["']?(.+?)["']/i;
-exports.isXMLFile = (uri) => path_1.extname(uri) === '.xml';
 const bufferToString = (buffer, isXML) => {
     let body = buffer.toString();
     let match = isXML ?
@@ -29,7 +14,7 @@ const bufferToString = (buffer, isXML) => {
     if (match) {
         let CHARSET = match[1].toUpperCase();
         if (CHARSET !== 'UTF8' && CHARSET !== 'UTF-8') {
-            let iconv = new Iconv(CHARSET, 'UTF-8//TRANSLIT//IGNORE');
+            let iconv = new Iconv_1.Iconv(CHARSET, 'UTF-8//TRANSLIT//IGNORE');
             body = iconv.convert(buffer).toString();
         }
     }
@@ -45,7 +30,7 @@ exports.requestAsync = (uri) => {
                 resolve({ err: res.statusCode, uri, res });
             }
             else {
-                let cache = bufferToString(buffer, exports.isXMLFile(uri));
+                let cache = bufferToString(buffer, exports.isXMLFilename(uri));
                 if (REPLACEMENT_CHAR_REGEX.test(cache)) {
                     resolve({ uri, err: 'corrupted body', res });
                 }
@@ -56,7 +41,3 @@ exports.requestAsync = (uri) => {
         });
     });
 };
-function sleep(ms = 0) {
-    return new Promise(r => setTimeout(r, ms));
-}
-exports.sleep = sleep;

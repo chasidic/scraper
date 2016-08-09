@@ -1,1 +1,2 @@
-export declare let jade: ($: CheerioStatic, INDENT_VALUE?: string) => string;
+/// <reference types="cheerio" />
+export declare let toJade: ($: CheerioStatic, indent?: number) => string;

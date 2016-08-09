@@ -1,3 +1,4 @@
+/// <reference types="cheerio" />
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -10,19 +11,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const async_1 = require('async');
 const cheerio_1 = require('cheerio');
 const cache_1 = require('@chasidic/cache');
+const requestAsync_1 = require('./requestAsync');
 const common_1 = require('./common');
-class Request {
-    constructor() {
-        this.cache = new cache_1.Cache();
+class Scraper {
+    constructor(options = {}) {
+        this._cache = new cache_1.Cache(options.cacheDir || null);
+        this._sleep = options.sleep || 1000;
+        this._retries = options.retries || 3;
     }
     _loadURI(uri) {
         return new Promise((resolve, reject) => {
-            this.cache.get(uri).then((body) => {
+            this._cache.get(uri).then((body) => {
                 if (body) {
                     let $ = cheerio_1.load(body, {
                         normalizeWhitespace: true,
                         decodeEntities: false,
-                        xmlMode: common_1.isXMLFile(uri)
+                        xmlMode: requestAsync_1.isXMLFilename(uri)
                     });
                     resolve($);
                 }
@@ -35,20 +39,20 @@ class Request {
     _fetcher(uri) {
         return __awaiter(this, void 0, void 0, function* () {
             let fetcher;
-            if (yield this.cache.has(uri)) {
+            if (yield this._cache.has(uri)) {
                 fetcher = { success: 'cache', uri };
             }
             else {
-                let retries = 10;
+                let retries = this._retries;
                 do {
-                    fetcher = yield common_1.requestAsync(uri);
+                    fetcher = yield requestAsync_1.requestAsync(uri);
                     if (!fetcher.res)
-                        yield common_1.sleep(1000);
+                        yield common_1.sleep(this._sleep);
                     else
                         break;
                 } while (--retries > 0);
                 if (fetcher.cache) {
-                    yield this.cache.set(uri, fetcher.cache);
+                    yield this._cache.set(uri, fetcher.cache);
                     delete fetcher.cache;
                 }
                 else {
@@ -79,4 +83,4 @@ class Request {
         });
     }
 }
-exports.Request = Request;
+exports.Scraper = Scraper;

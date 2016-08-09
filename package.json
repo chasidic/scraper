@@ -22,8 +22,8 @@
   "author": "Ilan Frumer <ilanfrumer@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@chasidic/cache": "^0.0.1",
-    "@types/async": "^1.4.28",
+    "@chasidic/cache": "^0.0.2",
+    "@types/async": "^2.0.30",
     "@types/cheerio": "^0.17.29",
     "@types/request": "0.0.28",
     "async": "^2.0.1",

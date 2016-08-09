@@ -1,3 +1,4 @@
+/// <reference types="cheerio" />
 "use strict";
 const IGNORE_ATTRS = new Set(['style']);
 let recursiveTree = (root, { INDENT_VALUE, output, indent }) => {
@@ -31,6 +32,9 @@ let recursiveTree = (root, { INDENT_VALUE, output, indent }) => {
     }
     return output;
 };
-exports.jade = ($, INDENT_VALUE = '  ') => {
+exports.toJade = ($, indent = 2) => {
+    let INDENT_VALUE = '';
+    while (indent-- > 0)
+        INDENT_VALUE += ' ';
     return recursiveTree($.root()[0], { INDENT_VALUE, output: '', indent: '' });
 };
