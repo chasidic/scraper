@@ -20,3 +20,7 @@ export function sleep(ms = 0) {
   return new Promise(r => setTimeout(r, ms));
 }
 
+export const pad = (str: string, length: number, PAD = ' ') => {
+  while (str.length < length) str = PAD + str;
+  return str;
+};

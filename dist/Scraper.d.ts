@@ -1,15 +1,19 @@
 /// <reference types="bluebird" />
 /// <reference types="cheerio" />
+import { Cache } from '@chasidic/cache';
 import { IRequestFetcher } from './requestAsync';
+export declare type IScraperNotifier = (uri: string, count: string) => void;
 export interface IScraperOptions {
     cacheDir?: string;
     sleep?: number;
     retries?: number;
+    notify?: IScraperNotifier;
 }
 export declare class Scraper {
-    private _cache;
+    cache: Cache;
     private _sleep;
     private _retries;
+    private _notify;
     constructor(options?: IScraperOptions);
     private _loadURI(uri);
     private _fetcher(uri);

@@ -19,3 +19,8 @@ function sleep(ms = 0) {
     return new Promise(r => setTimeout(r, ms));
 }
 exports.sleep = sleep;
+exports.pad = (str, length, PAD = ' ') => {
+    while (str.length < length)
+        str = PAD + str;
+    return str;
+};

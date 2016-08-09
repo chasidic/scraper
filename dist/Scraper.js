@@ -15,13 +15,14 @@ const requestAsync_1 = require('./requestAsync');
 const common_1 = require('./common');
 class Scraper {
     constructor(options = {}) {
-        this._cache = new cache_1.Cache(options.cacheDir || null);
+        this.cache = new cache_1.Cache(options.cacheDir || null);
         this._sleep = options.sleep || 1000;
         this._retries = options.retries || 3;
+        this._notify = options.notify || function () { };
     }
     _loadURI(uri) {
         return new Promise((resolve, reject) => {
-            this._cache.get(uri).then((body) => {
+            this.cache.get(uri).then((body) => {
                 if (body) {
                     let $ = cheerio_1.load(body, {
                         normalizeWhitespace: true,
@@ -39,20 +40,22 @@ class Scraper {
     _fetcher(uri) {
         return __awaiter(this, void 0, void 0, function* () {
             let fetcher;
-            if (yield this._cache.has(uri)) {
+            if (yield this.cache.has(uri)) {
                 fetcher = { success: 'cache', uri };
             }
             else {
-                let retries = this._retries;
+                let retries = 1;
                 do {
                     fetcher = yield requestAsync_1.requestAsync(uri);
-                    if (!fetcher.res)
+                    if (!fetcher.res) {
                         yield common_1.sleep(this._sleep);
-                    else
+                    }
+                    else {
                         break;
-                } while (--retries > 0);
+                    }
+                } while (++retries < this._retries);
                 if (fetcher.cache) {
-                    yield this._cache.set(uri, fetcher.cache);
+                    yield this.cache.set(uri, fetcher.cache);
                     delete fetcher.cache;
                 }
                 else {
@@ -71,8 +74,11 @@ class Scraper {
     fetch(url, LIMIT = 5) {
         return __awaiter(this, void 0, void 0, function* () {
             let uris = common_1.stringArray(url);
+            const COUNT = uris.length.toString();
             return new Promise((resolve) => {
+                let index = 0;
                 async_1.mapLimit(uris, LIMIT, (uri, next) => {
+                    this._notify(uri, `${common_1.pad((++index).toString(), COUNT.length, '0')}/${COUNT}`);
                     this._fetcher(uri).then(res => {
                         next(null, res);
                     });
