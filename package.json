@@ -22,16 +22,16 @@
   "author": "Ilan Frumer <ilanfrumer@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@chasidic/cache": "^0.0.2",
-    "@types/async": "^2.0.30",
+    "@chasidic/cache": "^0.0.3",
+    "@types/async": "^2.0.31",
     "@types/cheerio": "^0.17.29",
-    "@types/request": "0.0.28",
+    "@types/request": "0.0.30",
     "async": "^2.0.1",
-    "cheerio": "^0.20.0",
+    "cheerio": "^0.22.0",
     "iconv": "^2.2.1",
     "request": "^2.74.0"
   },
   "devDependencies": {
-    "typescript": "^2.1.0-dev.20160802"
+    "typescript": "^2.0.2"
   }
 }
