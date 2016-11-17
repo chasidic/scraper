@@ -3,16 +3,16 @@
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator.throw(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
         function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments)).next());
     });
 };
-const async_1 = require('async');
-const cheerio_1 = require('cheerio');
-const cache_1 = require('@chasidic/cache');
-const requestAsync_1 = require('./requestAsync');
-const common_1 = require('./common');
+const async_1 = require("async");
+const cheerio_1 = require("cheerio");
+const cache_1 = require("@chasidic/cache");
+const requestAsync_1 = require("./requestAsync");
+const common_1 = require("./common");
 class Scraper {
     constructor(options = {}) {
         this.cache = new cache_1.Cache(options.cacheDir || null);

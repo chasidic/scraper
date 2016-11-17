@@ -23,15 +23,15 @@
   "license": "MIT",
   "dependencies": {
     "@chasidic/cache": "^0.0.3",
-    "@types/async": "^2.0.31",
-    "@types/cheerio": "^0.17.29",
-    "@types/request": "0.0.30",
-    "async": "^2.0.1",
+    "@types/async": "^2.0.33",
+    "@types/cheerio": "^0.17.31",
+    "@types/request": "0.0.33",
+    "async": "^2.1.2",
     "cheerio": "^0.22.0",
     "iconv": "^2.2.1",
-    "request": "^2.74.0"
+    "request": "^2.78.0"
   },
   "devDependencies": {
-    "typescript": "^2.0.2"
+    "typescript": "^2.0.10"
   }
 }

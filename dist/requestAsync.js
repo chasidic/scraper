@@ -1,7 +1,7 @@
 "use strict";
-const path_1 = require('path');
-const request_1 = require('request');
-const iconv_1 = require('iconv');
+const path_1 = require("path");
+const request_1 = require("request");
+const iconv_1 = require("iconv");
 exports.isXMLFilename = (uri) => path_1.extname(uri) === '.xml';
 const REPLACEMENT_CHAR_REGEX = /\uFFFD/;
 const CHARSET_REGEX_XML = /encoding=["'](.+?)["']/i;
