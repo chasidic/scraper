@@ -32,7 +32,7 @@ let recursiveTree = (root, { INDENT_VALUE, output, indent }) => {
     }
     return output;
 };
-exports.toJade = ($, indent = 2) => {
+exports.toJade = ($, indent) => {
     let INDENT_VALUE = '';
     while (indent-- > 0)
         INDENT_VALUE += ' ';

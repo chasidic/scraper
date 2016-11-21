@@ -1,3 +1,3 @@
 export { Scraper } from './Scraper';
-export { toJade } from './RecursiveTree';
-export { sleep, stringArray, uniq, uniqMap } from './common';
+import * as lib from './lib';
+export { lib };

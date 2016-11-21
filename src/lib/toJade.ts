@@ -42,7 +42,7 @@ let recursiveTree = (root: CheerioElement, { INDENT_VALUE, output, indent }: IOp
   return output;
 };
 
-export let toJade = ($: CheerioStatic, indent = 2) => {
+export let toJade = ($: CheerioStatic, indent: number) => {
   let INDENT_VALUE = '';
   while (indent-- > 0) INDENT_VALUE += ' ';
   return recursiveTree($.root()[0], { INDENT_VALUE, output: '', indent: '' });
