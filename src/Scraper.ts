@@ -7,13 +7,13 @@ export class Scraper {
     private _sleep: number;
     private _retries: number;
 
-    constructor({ cacheDir = null, sleep = 1000, retries = 3 }: {
-        cacheDir?: string | Cache | MemoryCache;
+    constructor({ cache = null, sleep = 1000, retries = 3 }: {
+        cache?: string | Cache | MemoryCache;
         sleep?: number;
         retries?: number;
     } = {}) {
         
-        this._cache = cacheDir == null ? new MemoryCache() : (typeof cacheDir === 'string' ? new Cache(cacheDir) : cacheDir);
+        this._cache = cache == null ? new MemoryCache() : (typeof cache === 'string' ? new Cache(cache) : cache);
         this._sleep = sleep;
         this._retries = retries;
     }
