@@ -1,5 +1,4 @@
-import { Cache } from '@chasidic/cache';
-import { ScraperItem } from './ScraperItem';
+/// <reference types="cheerio" />
 export declare class Scraper {
     private _cache;
     private _sleep;
@@ -9,8 +8,7 @@ export declare class Scraper {
         sleep?: number;
         retries?: number;
     });
-    readonly cache: Cache;
-    readonly sleep: number;
-    readonly retries: number;
-    create(url: string): ScraperItem;
+    fetch(uri: string): Promise<void>;
+    load(uri: string): Promise<CheerioStatic>;
+    tree(uri: string, indent?: number): Promise<string>;
 }
