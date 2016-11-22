@@ -12,7 +12,7 @@ const cheerio_1 = require("cheerio");
 const lib_1 = require("./lib");
 class Scraper {
     constructor({ cacheDir = null, sleep = 1000, retries = 3 } = {}) {
-        this._cache = cacheDir == null ? new cache_1.MemoryCache() : new cache_1.Cache(cacheDir);
+        this._cache = cacheDir == null ? new cache_1.MemoryCache() : (typeof cacheDir === 'string' ? new cache_1.Cache(cacheDir) : cacheDir);
         this._sleep = sleep;
         this._retries = retries;
     }

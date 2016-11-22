@@ -1,10 +1,11 @@
 /// <reference types="cheerio" />
+import { Cache, MemoryCache } from '@chasidic/cache';
 export declare class Scraper {
     private _cache;
     private _sleep;
     private _retries;
     constructor({cacheDir, sleep, retries}?: {
-        cacheDir?: string;
+        cacheDir?: string | Cache | MemoryCache;
         sleep?: number;
         retries?: number;
     });

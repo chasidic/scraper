@@ -8,11 +8,12 @@ export class Scraper {
     private _retries: number;
 
     constructor({ cacheDir = null, sleep = 1000, retries = 3 }: {
-        cacheDir?: string;
+        cacheDir?: string | Cache | MemoryCache;
         sleep?: number;
         retries?: number;
     } = {}) {
-        this._cache = cacheDir == null ? new MemoryCache() : new Cache(cacheDir);
+        
+        this._cache = cacheDir == null ? new MemoryCache() : (typeof cacheDir === 'string' ? new Cache(cacheDir) : cacheDir);
         this._sleep = sleep;
         this._retries = retries;
     }
