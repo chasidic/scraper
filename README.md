@@ -1,16 +1,11 @@
 ## @chasidic/scraper
 
 ```typescript
-import { Scraper } from './Scraper';
-
-let scraper = new Scraper({ cacheDir: '/tmp/cache/' });
-
-let item = scraper.create('http://example.com');
+import { Scraper } from '@chasidic/scraper';
 
 !async function () {
-
-    let tree = await item.tree();
+    let scraper = new Scraper({ cache: '/tmp/cache/' });
+    let tree = await scraper.tree('http://example.com');
     console.log(tree);
-
 } ();
 ```

@@ -1,4 +1,5 @@
 import { Cache, MemoryCache } from '@chasidic/cache';
+import { DOMParser, Options } from 'xmldom';
 import { load } from 'cheerio';
 import { isXMLFilename, requestAsync, sleep, toJade } from './lib';
 
@@ -12,7 +13,7 @@ export class Scraper {
         sleep?: number;
         retries?: number;
     } = {}) {
-        
+
         this._cache = cache == null ? new MemoryCache() : (typeof cache === 'string' ? new Cache(cache) : cache);
         this._sleep = sleep;
         this._retries = retries;
@@ -39,21 +40,26 @@ export class Scraper {
     }
 
     async load(uri: string) {
-        if (!await this._cache.has(uri)) {
-            await this.fetch(uri);
-        }
+        await this.fetch(uri);
+        return await this._cache.get(uri);
+    }
 
-        let body = await this._cache.get(uri);
+    async loadDOM(uri: string, options: Options = {}) {
+        const body = await this.load(uri);
+        const parser = new DOMParser(options);
+        return parser.parseFromString(body, 'text/xml');
+    }
 
-        return load(body, {
-            normalizeWhitespace: true,
-            decodeEntities: false,
-            xmlMode: isXMLFilename(uri)
-        });
+    async loadCheerio(uri: string) {
+        const body = await this.load(uri);
+        const normalizeWhitespace = true;
+        const decodeEntities = false;
+        const xmlMode = isXMLFilename(uri);
+        return load(body, { normalizeWhitespace, decodeEntities, xmlMode });
     }
 
     async tree(uri: string, indent = 2) {
-        let $ = await this.load(uri);
+        let $ = await this.loadCheerio(uri);
         return toJade($, indent);
-    }    
+    }
 }

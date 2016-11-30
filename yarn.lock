@@ -9,21 +9,23 @@
     "@types/fs-extra-promise" "0.0.30"
     fs-extra-promise "^0.4.1"
 
-"@types/async@^2.0.33":
-  version "2.0.33"
-  resolved "https://registry.yarnpkg.com/@types/async/-/async-2.0.33.tgz#e676d725e21fff68cc392c02d9db1f6e57a4441c"
+"@types/async@^2.0.34":
+  version "2.0.34"
+  resolved "https://registry.yarnpkg.com/@types/async/-/async-2.0.34.tgz#f23e1729609ccbe6cfaffc88270c5e71a6341678"
 
 "@types/bluebird@*":
-  version "3.0.35"
-  resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.0.35.tgz#e6e2d375a7b7a0a22f155ce74eb28d0da303740c"
+  version "3.0.36"
+  resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.0.36.tgz#b804ddd1b1a082cf3e2137dfa7b5287f437c29b7"
 
 "@types/cheerio@^0.17.31":
   version "0.17.31"
   resolved "https://registry.yarnpkg.com/@types/cheerio/-/cheerio-0.17.31.tgz#bfeda3e3e8647a6e49b2998d137c81d5d8ab52d0"
 
 "@types/form-data@*":
-  version "0.0.32"
-  resolved "https://registry.yarnpkg.com/@types/form-data/-/form-data-0.0.32.tgz#218134515d38929524ff562ba1c6ce93981f3a45"
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/@types/form-data/-/form-data-0.0.33.tgz#c9ac85b2a5fd18435b8c85d9ecb50e6d6c893ff8"
+  dependencies:
+    "@types/node" "*"
 
 "@types/fs-extra-promise@0.0.30":
   version "0.0.30"
@@ -34,21 +36,25 @@
     "@types/node" "*"
 
 "@types/fs-extra@*":
-  version "0.0.34"
-  resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-0.0.34.tgz#4eff2ff5b06a5a3bfc544add3a6ed34cdf892335"
+  version "0.0.35"
+  resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-0.0.35.tgz#3ed400c0122fb161db51da23d96ba5040cb9c7d9"
   dependencies:
     "@types/node" "*"
 
 "@types/node@*":
-  version "6.0.49"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.49.tgz#c644f7305e0d64bd797c939af833f22d150e1d33"
+  version "6.0.51"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.51.tgz#84cbf25111516ec9304d0b61469dc0fa9d12ba32"
 
-"@types/request@0.0.33":
-  version "0.0.33"
-  resolved "https://registry.yarnpkg.com/@types/request/-/request-0.0.33.tgz#6f5e780af6ca547d268c42bd610dd12cf3db2903"
+"@types/request@0.0.36":
+  version "0.0.36"
+  resolved "https://registry.yarnpkg.com/@types/request/-/request-0.0.36.tgz#e845870fc5fa372402d9f5c19fccc4ca0a5af543"
   dependencies:
     "@types/form-data" "*"
     "@types/node" "*"
+
+"@types/xmldom@^0.1.28":
+  version "0.1.28"
+  resolved "https://registry.yarnpkg.com/@types/xmldom/-/xmldom-0.1.28.tgz#52fabbeccc4f1806365d253b6c7b9673dda0f514"
 
 ansi-regex@^2.0.0:
   version "2.0.0"
@@ -70,9 +76,9 @@ assert-plus@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
 
-async@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/async/-/async-2.1.2.tgz#612a4ab45ef42a70cde806bad86ee6db047e8385"
+async@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/async/-/async-2.1.4.tgz#2d2160c7788032e4dd6cbe2502f1f9a2c8f6cde4"
   dependencies:
     lodash "^4.14.0"
 
@@ -198,8 +204,8 @@ css-what@2.1:
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-2.1.0.tgz#9467d032c38cfaefb9f2d79501253062f87fa1bd"
 
 dashdash@^1.12.0:
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.0.tgz#29e486c5418bf0f356034a993d51686a33e84141"
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
   dependencies:
     assert-plus "^1.0.0"
 
@@ -318,8 +324,8 @@ glob@^7.0.5:
     path-is-absolute "^1.0.0"
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
-  version "4.1.10"
-  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.10.tgz#f2d720c22092f743228775c75e3612632501f131"
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
 "graceful-readlink@>= 1.0.0":
   version "1.0.1"
@@ -675,8 +681,8 @@ util-deprecate@~1.0.1:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
 
 uuid@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.0.0.tgz#6728fc0459c450d796a99c31837569bdf672d728"
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.0.1.tgz#6544bba2dfda8c1cf17e629a3a305e2bb1fee6c1"
 
 verror@1.3.6:
   version "1.3.6"
@@ -687,6 +693,10 @@ verror@1.3.6:
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
+
+xmldom@^0.1.27:
+  version "0.1.27"
+  resolved "https://registry.yarnpkg.com/xmldom/-/xmldom-0.1.27.tgz#d501f97b3bdb403af8ef9ecc20573187aadac0e9"
 
 xtend@^4.0.0:
   version "4.0.1"

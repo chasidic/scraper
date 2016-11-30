@@ -5,7 +5,8 @@ const CHARSET_REGEX_HTML = /charset=["']?(.+?)["']/i;
 
 export function bufferToString(buffer: Buffer | string, isXML: boolean) {
   let body = buffer.toString();
-  let match = isXML ? body.match(CHARSET_REGEX_XML) : body.match(CHARSET_REGEX_HTML);
+  let regex = isXML ? CHARSET_REGEX_XML : CHARSET_REGEX_HTML;
+  let match = body.match(regex);
 
   if (match) {
     let CHARSET = match[1].toUpperCase();

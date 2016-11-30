@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const cache_1 = require("@chasidic/cache");
+const xmldom_1 = require("xmldom");
 const cheerio_1 = require("cheerio");
 const lib_1 = require("./lib");
 class Scraper {
@@ -38,20 +39,29 @@ class Scraper {
     }
     load(uri) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (!(yield this._cache.has(uri))) {
-                yield this.fetch(uri);
-            }
-            let body = yield this._cache.get(uri);
-            return cheerio_1.load(body, {
-                normalizeWhitespace: true,
-                decodeEntities: false,
-                xmlMode: lib_1.isXMLFilename(uri)
-            });
+            yield this.fetch(uri);
+            return yield this._cache.get(uri);
+        });
+    }
+    loadDOM(uri, options = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const body = yield this.load(uri);
+            const parser = new xmldom_1.DOMParser(options);
+            return parser.parseFromString(body, 'text/xml');
+        });
+    }
+    loadCheerio(uri) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const body = yield this.load(uri);
+            const normalizeWhitespace = true;
+            const decodeEntities = false;
+            const xmlMode = lib_1.isXMLFilename(uri);
+            return cheerio_1.load(body, { normalizeWhitespace, decodeEntities, xmlMode });
         });
     }
     tree(uri, indent = 2) {
         return __awaiter(this, void 0, void 0, function* () {
-            let $ = yield this.load(uri);
+            let $ = yield this.loadCheerio(uri);
             return lib_1.toJade($, indent);
         });
     }
