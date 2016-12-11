@@ -2,12 +2,13 @@
 # yarn lockfile v1
 
 
-"@chasidic/cache@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@chasidic/cache/-/cache-0.1.1.tgz#16d24ae4f9113f13f16a80b92fe89c7aa86ec1c7"
+"@chasidic/cache@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@chasidic/cache/-/cache-0.2.0.tgz#870d19ea6fd8dd63e2f39d7eaa5ef34f73a49abf"
   dependencies:
     "@types/fs-extra-promise" "0.0.30"
     fs-extra-promise "^0.4.1"
+    tslib "^1.2.0"
 
 "@types/async@^2.0.34":
   version "2.0.34"
@@ -664,6 +665,10 @@ tough-cookie@~2.3.0:
   dependencies:
     punycode "^1.4.1"
 
+tslib@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.2.0.tgz#074fb171034594bdba4c4dbb197c26e4a0b88383"
+
 tunnel-agent@~0.4.1:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.4.3.tgz#6373db76909fe570e08d73583365ed828a74eeeb"
@@ -672,9 +677,9 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.3"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.3.tgz#3da382f670f25ded78d7b3d1792119bca0b7132d"
 
-typescript@^2.0.10:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.1.1.tgz#41c2b64472f529331b2055c0424862b44ce58d42"
+typescript@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.1.4.tgz#b53b69fb841126acb1dd4b397d21daba87572251"
 
 util-deprecate@~1.0.1:
   version "1.0.2"

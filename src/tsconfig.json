@@ -16,6 +16,7 @@
         "suppressExcessPropertyErrors": false,
         "suppressImplicitAnyIndexErrors": true,
         "target": "es6",
+        "importHelpers": true,
         "declaration": true
     },
     "exclude": [

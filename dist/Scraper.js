@@ -1,12 +1,5 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments)).next());
-    });
-};
+const tslib_1 = require("tslib");
 const cache_1 = require("@chasidic/cache");
 const xmldom_1 = require("xmldom");
 const cheerio_1 = require("cheerio");
@@ -18,7 +11,7 @@ class Scraper {
         this._retries = retries;
     }
     fetch(uri) {
-        return __awaiter(this, void 0, void 0, function* () {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
             if (!(yield this._cache.has(uri))) {
                 let retries = 1;
                 let error = null;
@@ -38,20 +31,20 @@ class Scraper {
         });
     }
     load(uri) {
-        return __awaiter(this, void 0, void 0, function* () {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
             yield this.fetch(uri);
             return yield this._cache.get(uri);
         });
     }
     loadDOM(uri, options = {}) {
-        return __awaiter(this, void 0, void 0, function* () {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const body = yield this.load(uri);
             const parser = new xmldom_1.DOMParser(options);
             return parser.parseFromString(body, 'text/xml');
         });
     }
     loadCheerio(uri) {
-        return __awaiter(this, void 0, void 0, function* () {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const body = yield this.load(uri);
             const normalizeWhitespace = true;
             const decodeEntities = false;
@@ -60,7 +53,7 @@ class Scraper {
         });
     }
     tree(uri, indent = 2) {
-        return __awaiter(this, void 0, void 0, function* () {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
             let $ = yield this.loadCheerio(uri);
             return lib_1.toJade($, indent);
         });
