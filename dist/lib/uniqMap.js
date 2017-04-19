@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function uniqMap(array) {
     let map = new Map();
     for (let i of array)

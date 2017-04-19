@@ -4,12 +4,12 @@ import { load } from 'cheerio';
 import { isXMLFilename, requestAsync, sleep, toJade } from './lib';
 
 export class Scraper {
-    private _cache: Cache | MemoryCache;
+    private _cache: Cache<string> | MemoryCache;
     private _sleep: number;
     private _retries: number;
 
     constructor({ cache = null, sleep = 1000, retries = 3 }: {
-        cache?: string | Cache | MemoryCache;
+        cache?: string | Cache<string> | MemoryCache;
         sleep?: number;
         retries?: number;
     } = {}) {

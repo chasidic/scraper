@@ -7,7 +7,7 @@ export declare class Scraper {
     private _sleep;
     private _retries;
     constructor({cache, sleep, retries}?: {
-        cache?: string | Cache | MemoryCache;
+        cache?: string | Cache<string> | MemoryCache;
         sleep?: number;
         retries?: number;
     });

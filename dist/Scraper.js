@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const cache_1 = require("@chasidic/cache");
 const xmldom_1 = require("xmldom");

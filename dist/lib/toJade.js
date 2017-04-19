@@ -1,5 +1,6 @@
-/// <reference types="cheerio" />
 "use strict";
+/// <reference types="cheerio" />
+Object.defineProperty(exports, "__esModule", { value: true });
 const IGNORE_ATTRS = new Set(['style']);
 let recursiveTree = (root, { INDENT_VALUE, output, indent }) => {
     for (let e of root.children) {

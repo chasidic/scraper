@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const request_1 = require("request");
 const isXMLFilename_1 = require("./isXMLFilename");

@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const iconv_1 = require("iconv");
 const CHARSET_REGEX_XML = /encoding=["'](.+?)["']/i;
 const CHARSET_REGEX_HTML = /charset=["']?(.+?)["']/i;
