@@ -16,25 +16,25 @@
     "minor": "npm version minor && npm publish",
     "patch": "npm version patch && npm publish",
     "postpublish": "git push origin master --follow-tags",
-    "prepublish": "npm run build -s",
+    "prepublishOnly": "npm run build -s",
     "tsc:watch": "npm run build -- --watch"
   },
   "author": "Ilan Frumer <ilanfrumer@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@chasidic/cache": "^0.4.0",
+    "@chasidic/cache": "^0.4.1",
     "@types/async": "^2.0.40",
     "@types/cheerio": "^0.22.1",
-    "@types/request": "0.0.42",
+    "@types/request": "0.0.43",
     "@types/xmldom": "^0.1.29",
-    "async": "^2.3.0",
-    "cheerio": "^0.22.0",
+    "async": "^2.4.1",
+    "cheerio": "^1.0.0-rc.1",
     "iconv": "^2.2.3",
     "request": "^2.81.0",
-    "tslib": "^1.6.0",
+    "tslib": "^1.7.1",
     "xmldom": "^0.1.27"
   },
   "devDependencies": {
-    "typescript": "^2.2.2"
+    "typescript": "^2.3.4"
   }
 }
