@@ -1,12 +1,10 @@
 "use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(require("./bufferToString"));
-__export(require("./isXMLFilename"));
-__export(require("./requestAsync"));
-__export(require("./sleep"));
-__export(require("./uniq"));
-__export(require("./uniqMap"));
-__export(require("./toJade"));
+const tslib_1 = require("tslib");
+tslib_1.__exportStar(require("./bufferToString"), exports);
+tslib_1.__exportStar(require("./isXMLFilename"), exports);
+tslib_1.__exportStar(require("./requestAsync"), exports);
+tslib_1.__exportStar(require("./sleep"), exports);
+tslib_1.__exportStar(require("./uniq"), exports);
+tslib_1.__exportStar(require("./uniqMap"), exports);
+tslib_1.__exportStar(require("./toJade"), exports);
