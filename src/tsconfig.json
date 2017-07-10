@@ -15,7 +15,7 @@
         "noFallthroughCasesInSwitch": true,
         "suppressExcessPropertyErrors": false,
         "suppressImplicitAnyIndexErrors": true,
-        "target": "es6",
+        "target": "es2017",
         "importHelpers": true,
         "declaration": true
     },
