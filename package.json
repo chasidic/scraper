@@ -27,6 +27,7 @@
     "@types/cheerio": "^0.22.7",
     "@types/request": "2.47.1",
     "@types/xmldom": "^0.1.29",
+    "@types/fs-extra-promise": "^1.0.6",
     "async": "^2.6.1",
     "cheerio": "^1.0.0-rc.2",
     "iconv": "^2.3.0",

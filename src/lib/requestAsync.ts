@@ -24,4 +24,4 @@ export async function requestAsync(uri: string) {
             }
         });
     });
-};
+}
