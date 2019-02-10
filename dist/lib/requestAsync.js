@@ -29,4 +29,3 @@ async function requestAsync(uri) {
     });
 }
 exports.requestAsync = requestAsync;
-;
